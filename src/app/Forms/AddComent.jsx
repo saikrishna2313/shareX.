@@ -8,16 +8,20 @@ import { useEffect, useRef, useState } from "react";
 import CommentList from "./CommentList";
 import { useSession } from "next-auth/react";
 const AddComent = ({blogId}) => {
+  
     const ref=useRef();
+    const [commnets,setComments]=useState([])
     const session=useSession();
     const add=async(formData)=>{
     const aId=session?.data?.user?.email
-     await addComment(blogId,formData,aId);
+    if(session.status==="authenticated"){
+      await addComment(blogId,formData,aId);
+    }
      ref.current?.reset()
      getCommnets()
 
     }
-    const [commnets,setComments]=useState([])
+
 
 
     const getCommnets=async()=>{
@@ -32,7 +36,7 @@ const AddComent = ({blogId}) => {
     <section className="">
         <form action={add} ref={ref} className="max-w-4xl px-3 gap-3 flex justify-start items-center rounded shadow-lg  mx-auto">
     <div className="bg -slate-200 p-2 rounded-full">
-    <Image width={30} height={30} src={session?.data?.user?.image} className='h-8 w-8 rounded-full border-2'/>
+    <Image width={30} height={30} src={session?.data?.user?.image} className='h-6 w-6 rounded-full border-2'/>
     </div>
     <textarea required  rows={1} name="text" type="text" className="w-full my-1 px-3 mx-1 py-2 shadow-md outline-none" placeholder="Add Comment"/>
     <button type="submit"><FaCircleArrowRight className="w-6 hover:text-blue-400 rotate-90 h-6"/></button>
