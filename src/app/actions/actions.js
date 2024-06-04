@@ -98,21 +98,28 @@ export const updateBlog=async(formData,id)=>{
 export const addComment=async(blogId,formData,aId)=>{
 
       if(!blogId || !aId){
-        revalidatePath(`/blogs`)
+        revalidate(`/blogs/${blogId}`)
       }
     const text=formData.get('text')
-    const isExist=await prisma.user.findFirst({
+    const isExist=await prisma.user.findUnique({
       where:{
         email:aId
       }
     })
+    if(!isExist){
+      revalidatePath("/")
+    }
+    const auId=isExist?.id
+    const auName=isExist?.username
+    const auImage=isExist?.image
+
     const commnet=await prisma.comment.create({
       data:{
         text:text,
         blogId:blogId,
-        authorId:isExist?.id,
-        authorName:isExist?.username,
-        authorImage:isExist?.image
+        authorId:auId,
+        authorName:auName,
+        authorImage:auImage
       }
     })
    
