@@ -24,7 +24,7 @@ const UserPosts = async({user}) => {
         blogs.map((blog)=>{
             return(
        
-               <section key={blog?.id}>
+               <section key={blog?.title}>
                  <Link href={`/blogs/${blog?.id}`} className="flex border relative bg-slate-100 flex-col justify-center items-center ">
                    <div>
                    <Image width={200} quality={100} height={100} src={blog?.image} className="object-cover w-[200px] h-[100px]"/>
