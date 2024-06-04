@@ -34,7 +34,7 @@ const MyProfile = () => {
 
 
   return (
-    <Link href={`/profile/${userId}`} className={`  shadow-md border  max-md:pl-3 focus:bg-black focus:text-white  max-md:w-full bg-white max-md:text-lg flex justify-start  items-center gap-2 px-4 py-1  rounded font-semibold`}>
+    <Link href={`/profile/${userId}`} className={`shadow-md border  max-md:pl-3 focus:bg-black focus:text-white  max-md:w-full bg-white max-md:text-lg flex justify-start  items-center gap-2 px-4 py-1  rounded font-semibold`}>
     <FaUserLarge />
      Profile</Link>
   )
