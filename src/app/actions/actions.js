@@ -96,6 +96,10 @@ export const updateBlog=async(formData,id)=>{
 
 
 export const addComment=async(blogId,formData,aId)=>{
+
+      if(!blogId || !aId){
+        revalidatePath(`/blogs`)
+      }
     const text=formData.get('text')
     const isExist=await prisma.user.findFirst({
       where:{
@@ -106,8 +110,8 @@ export const addComment=async(blogId,formData,aId)=>{
       data:{
         text:text,
         blogId:blogId,
-        authorId:isExist.id,
-        authorName:isExist.username,
+        authorId:isExist?.id,
+        authorName:isExist?.username,
         authorImage:isExist?.image
       }
     })
