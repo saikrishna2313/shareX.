@@ -18,7 +18,7 @@ const page = async({params}) => {
     
    const blog=await SingleBlog(params?.id)
     return (
-      <section className=' min-h-screen'>
+      <section key={blog?.id} className=' min-h-screen'>
       <section className="max-w-4xl mt-20  mx-auto my-8 p-6 bg-white rounded-lg shadow-lg">
         <div className='flex justify-between items-center gap-1 my-1'>
            <Link href={`/profile/${blog?.authorId}`} className='flex justify-start items-center gap-2'><Image width={300} height={400} src={blog?.authorImage} className='h-8 w-8 rounded-full border-2'/>
@@ -32,7 +32,7 @@ const page = async({params}) => {
             
         </div>
         
-        <Image width={300} height={400} src={blog?.image} alt={blog.title} className="w-full h-64 object-cover rounded-t-lg" />
+        <Image width={300} height={400} src={blog?.image} alt="imf" className="w-full h-64 object-cover rounded-t-lg" />
         <div className="p-6">
           <h2 className="text-2xl font-bold text-gray-800">{blog.title}</h2>
           <p className="text-sm text-gray-600 mt-2">{blog.category}</p>

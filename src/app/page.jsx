@@ -42,7 +42,7 @@ const page = async() => {
      
     </div>
     </section>
-    <Image quality={100} className='mt-5 max-sm:w-[300px] max-sm:ml-3 max-sm:mt-20' src={one} />
+    <Image alt='local' quality={100} className='mt-5 max-sm:w-[300px] max-sm:ml-3 max-sm:mt-20' src={one} />
    </section>
    </section>
   )
