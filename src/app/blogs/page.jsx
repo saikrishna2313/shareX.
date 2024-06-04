@@ -33,7 +33,7 @@ const page = async({searchParams}) => {
     blogs.map((blog)=>{
         return (
            
-              <section className="mx-2">
+              <section key={blog?.id} className="mx-2">
             
             <section   className="w-[400px]  text-start  my-3 p-3 bg-white rounded-lg shadow-lg">
             <Link href={`/profile/${blog?.authorId}`} className='flex justify-start items-center gap-1 my-1 py-2'>
