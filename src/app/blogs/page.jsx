@@ -35,17 +35,17 @@ const page = async({searchParams}) => {
            
               <section key={blog?.title} className="mx-2">
             
-            <section   className="w-[400px]  text-start  my-3 p-3 bg-white rounded-lg shadow-lg">
+            <section  key={blog?.updatedAt}  className="w-[400px]  text-start  my-3 p-3 bg-white rounded-lg shadow-lg">
             <Link href={`/profile/${blog?.authorId}`} className='flex justify-start items-center gap-1 my-1 py-2'>
            <Image width={300} quality={100} height={400} src={blog?.authorImage} className='h-6 w-6 rounded-full border-2'/>
           <p>{blog?.authorName}</p>
         </Link>
               <Image width={300} height={400} src={blog?.image} className="w-full h-44 object-cover rounded-t-lg" />
-              <div className="p-6">
+              <div key={blog?.authorName} className="p-6">
                 <h2 className="text-2xl font-bold text-gray-800">{blog.title}</h2>
                 <p className="text-sm text-gray-600 mt-1">{blog.category}</p>
                 <p className="mt-2 text-gray-700">{blog.description.substring(0,100)}<span className="text-blue-500 pl-4">Read more...</span></p>
-              <Link href={`/blogs/${blog?.id}`} className="px-4 py-1 bg-blue-500 font-semibold text-sm mt-2 text-white rounded-sm uppercase">Read now</Link>
+              <Link  href={`/blogs/${blog?.id}`} className="px-4 py-1 bg-blue-500 font-semibold text-sm mt-2 text-white rounded-sm uppercase">Read now</Link>
               </div>
                
         
