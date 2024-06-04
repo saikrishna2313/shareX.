@@ -18,7 +18,7 @@ const UserPosts = async({user}) => {
         <h1 className="text-xl font-semibold text-blue-500">Blogs</h1>
 
     </div> */}
-   <section className="grid border-t-2 max-sm:mx-1 grid-cols-3 justify-center items-center  overflow-x-hidden mx-auto">
+   <section key="jey" className="grid border-t-2 max-sm:mx-1 grid-cols-3 justify-center items-center  overflow-x-hidden mx-auto">
    
       {
         blogs.map((blog)=>{
